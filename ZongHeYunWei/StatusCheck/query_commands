@@ -1,0 +1,13 @@
+hostname
+uptime | awk -F'load average:' '{print $2}'
+echo -e $(($(cat /proc/meminfo | awk 'NR==1 {print $2}')/1000))'M' 
+echo -e $((100-$(cat /proc/meminfo | awk 'NR==2 {print $2}')*100/$(cat /proc/meminfo | awk 'NR==1 {print $2}')))%
+df -Th | awk 'NR==2 {print $0}' | awk -F' ' '{print $6,$7}'
+df -Th | grep -E 'DATABAK|p8filestore' | awk -F' ' '{print $6,$7}'
+echo -e $(($(cat /proc/meminfo | grep -E 'SwapTotal|SwapFree' | awk 'NR==1 {print $2}')/1000))'M' 
+echo -e $((100-$(cat /proc/meminfo | grep -E 'SwapTotal|SwapFree' | awk 'NR==2 {print $2}')*100/$(cat /proc/meminfo | grep -E 'SwapTotal|SwapFree' | awk 'NR==1 {print $2}')))%
+uptime | awk -F',' '{print $1}'
+head -n 1 /etc/issue
+uname -a | awk '{print $3}'
+echo $(($(ps -ef | wc -l)-1))
+netstat -anputl | grep tcp | wc -l
