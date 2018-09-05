@@ -1,0 +1,69 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux服务器巡检</title>
+  <!-- 使用本地的样式与js文件 -->
+  <link rel="stylesheet" href="{% static 'css/semantic.min.css' %}">
+  <script type="text/javascript" src="{% static 'js/semantic.min.js'%}"></script>
+</head>
+<body>
+    <!-- 目录结构 -->
+    <div class="ui container">
+      <div class="ui secondary pointing menu">
+        <div class=" item">
+          <a href="http://127.0.0.1:8000/index/">首页</a>
+        </div>
+        <div class=" item">
+          <a href="#">资产扫描</a>
+        </div>
+        <div class=" item">
+          <a href="#">资源分配</a>
+        </div>
+        <div class=" item">
+          <a href="#">硬件状态</a>
+        </div>
+        <div class=" item">
+          <a href="#">软件状态</a>
+        </div>
+        <div class=" item">
+          <a href="#">系统状态</a>
+        </div>
+        <div class="active item">
+          <a href="http://127.0.0.1:8000/checkSer/">自动化运维</a>
+        </div>
+        <div class="right menu">
+          <div class="item">
+            <a href="/SignIn" class="ui button">登录</a>
+          </div>
+          <div class="item">
+            <a href="/SignOut" class="ui button">注销</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 隐藏分隔条 -->
+    <div class="ui hidden divider">
+
+    </div>
+  <center>
+    <div class="ui container segment">
+      <h3>Linux服务器巡检</h3>
+      <h5>远程执行命令</h5>
+      <form method="POST" action="/checkServer/">
+        <p>1.ip：<input type="text" value="" name="ip">{% csrf_token %}
+        2.port:<input type="text" value="" name="port">{% csrf_token %}
+        3.user:<input type="text" value="" name="user">{% csrf_token %}
+        4.Command:<input type="text" value="" name="Command">{% csrf_token %}
+        <input type="submit" value="提交">
+      </form>
+      <p><a href="http://127.0.0.1:8000/OneClickCheck/"><h5>一键巡检Linux服务器</h5></a>[ip配置文件server_ip]
+
+    </div>
+    <a href="http://127.0.0.1:8000/index/">返回首页...</a>
+  </center>
+</body>
+</html>

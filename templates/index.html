@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <title>运维服务平台</title>
+    <!-- 使用本地的样式与js文件 -->
+    <link rel="stylesheet" href="{% static 'css/semantic.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/semantic.min.js'%}"></script>
+    <!-- 也可以直接使用CDN链接 -->
+    <!--
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.js"></script>
+    -->
+  </head>
+  <body>
+    <!-- 目录结构 -->
+    <div class="ui container">
+      <div class="ui secondary pointing menu">
+        <div class="active item">
+          <a href="#">首页</a>
+        </div>
+        <div class=" item">
+          <a href="#">资产扫描</a>
+        </div>
+        <div class=" item">
+          <a href="#">资源分配</a>
+        </div>
+        <div class=" item">
+          <a href="#">硬件状态</a>
+        </div>
+        <div class=" item">
+          <a href="#">软件状态</a>
+        </div>
+        <div class=" item">
+          <a href="#">系统状态</a>
+        </div>
+        <div class=" item">
+          <a href="http://127.0.0.1:8000/checkSer/">自动化运维</a>
+        </div>
+        <div class="right menu">
+          <div class="item">
+            <a href="/SignIn" class="ui button">登录</a>
+          </div>
+          <div class="item">
+            <a href="/SignOut" class="ui button">注销</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 隐藏分隔条 -->
+    <div class="ui hidden divider">
+
+    </div>
+
+    <!-- 正文 -->
+    <div class="ui container segment">
+      <h3 class="ui header">数据转发实时状态</h3>
+      <a href="/author-link">查看...</a>
+      <div class="ui divider"></div>
+      <p>......
+      </p>
+    </div>
+    <div class="ui container segment">
+      <h3 class="ui header">esxi在线状态</h3>
+      <a href="/author-link">查看...</a>
+      <div class="ui divider"></div>
+      <p>......
+      </p>
+    </div>
+    <div class="ui container segment">
+      <h3 class="ui header">虚拟机在线状态</h3>
+      <a href="/author-link">查看...</a>
+      <div class="ui divider"></div>
+      <p>......
+      </p>
+    </div>
+    <div class="ui container segment">
+      <h3 class="ui header">节点进程</h3>
+      <a href="/author-link">查看...</a>
+      <div class="ui divider"></div>
+      <p>......
+      </p>  
+    </div>
+  </body>
+</html>
